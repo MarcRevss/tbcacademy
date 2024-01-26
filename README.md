@@ -6,7 +6,7 @@ TBCxUSAID TA is a technical assignment completed as part of the TBC Academy REAC
 
 ### Key Features
 - **Partner Banners Wheel:**
-  - A smooth-shuffling wheel displays banners of partners. Navigation can be done using left and right arrows or by clicking on dots corresponding to each partner. Partners wheel stop shuffling when mouse enters the banners.
+  * A smooth-shuffling wheel displays banners of partners. Navigation can be done using left and right arrows or by clicking on dots corresponding to each partner. Partners wheel stop shuffling when mouse enters the banners.
 
 - **Accordion for FAQs:**
   - Three frequently asked questions are presented with hidden answers. Clicking on a question smoothly reveals the answer, closing any previously open question.
