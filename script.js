@@ -41,6 +41,30 @@ let currentGroupIndex = 0;
 let arrowClickedRecently = false;
 let mouseEnter = 0;
 
+//calling function handleArrowClick parameter left if left arrow was clicked
+
+for (let i = 0; i < arrowLeft.length; i++) {
+    arrowLeft[i].addEventListener("click", () => {
+        handleArrowClick('left');
+    });
+}
+//calling function handleArrowClick parameter right if right arrow was clicked
+
+for (let i = 0; i < arrowRight.length; i++) {
+    arrowRight[i].addEventListener("click", () => {
+        handleArrowClick('right');
+    });
+}
+
+/* set interval is used to automatically trigger the handleArrowClick function with the 'right' direction every 4000 milliseconds.
+Change is only triggered if an arrow click was not recent, preventing interruptions and ensuring a smooth transition.*/
+
+setInterval(() => {
+    if (!arrowClickedRecently) {
+        handleArrowClick('right');
+    }
+}, 3000);
+
 /* 
 handleArrowClick function sets arrowClickedRecently to true,  indicating that an arrow click is recent. 
 it Initiates a fade-out effect on all partner divs by changing their opacity to 0 using the forEach loop.
@@ -80,31 +104,19 @@ function handleArrowClick(direction) {
 }}
 
 
-//added event listener on all partners banners and
+// event listener on all partners banners and fucntion on it form making banner stop when mousenter
 allDivsArray.forEach(element => {
     element.addEventListener('mouseenter', handleMouseEnter);
     element.addEventListener('mouseleave', handleMouseLeave);
 });
+
+//makes mousenter equal to one
 function handleMouseEnter() {        
     mouseEnter = 1;        
 }
+//makes mousenter equal to zero
 function handleMouseLeave() {        
     mouseEnter = 0;  
-}
-
-//calling function with parameter left if left arrow was clicked
-
-for (let i = 0; i < arrowLeft.length; i++) {
-    arrowLeft[i].addEventListener("click", () => {
-        handleArrowClick('left');
-    });
-}
-//calling function with parameter right if right arrow was clicked
-
-for (let i = 0; i < arrowRight.length; i++) {
-    arrowRight[i].addEventListener("click", () => {
-        handleArrowClick('right');
-    });
 }
 
 // provides a fade-in effect by setting the transition and opacity properties for each element in a group.
@@ -124,30 +136,20 @@ function hideGroups(groups) {
     });
 }
 
-/* set interval is used to automatically trigger the handleArrowClick function with the 'right' direction every 4000 milliseconds.
-Change is only triggered if an arrow click was not recent, preventing interruptions and ensuring a smooth transition.*/
-
-setInterval(() => {
-    if (!arrowClickedRecently) {
-        handleArrowClick('right');
-    }
-}, 3000);
-
-
 // Event listener for dotOne
-dotOne.addEventListener("click", function () {
+dotOne.addEventListener("click", () => {
     showGroup(partnersFirstDivs);
     hideGroups([partnersSecondDivs, partnersThirdDivs]);
 });
 
 // Event listener for dotTwo
-dotTwo.addEventListener("click", function () {
+dotTwo.addEventListener("click", () => {
     showGroup(partnersSecondDivs);
     hideGroups([partnersFirstDivs, partnersThirdDivs]);
 });
 
 // Event listener for dotThree
-dotThree.addEventListener("click", function () {
+dotThree.addEventListener("click", () => {
     showGroup(partnersThirdDivs);
     hideGroups([partnersFirstDivs, partnersSecondDivs]);
 });
@@ -155,7 +157,7 @@ dotThree.addEventListener("click", function () {
 //---------Question accordion----------// 
 //runs through questions and gives active status if clicked, removes if clicked again. 
 for (let i = 0; i < questions.length; i++) {
-    questions[i].addEventListener("click", function () {
+    questions[i].addEventListener("click",  () => {
         // Close all answers except the clicked one
         for (let j = 0; j < answers.length; j++) {
             if (j !== i) {
@@ -171,17 +173,7 @@ for (let i = 0; i < questions.length; i++) {
     });
 }
 
-
-
-
-
-
-
-
-
 //-------------------------------------//
-
-
 
 //----Hamburger menu and RulesAndCondition menu--//
 
