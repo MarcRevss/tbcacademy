@@ -283,11 +283,12 @@ header {
     position: absolute;
     padding-top: 20px;
     width: 90%;
-    min-width: 880px;
+    min-width: 970px;
     justify-content: space-between;
-    height: 364px;
-    align-items: center;
-    z-index: 995;
+    height: 200px;
+    margin-top: 75px;  
+    align-items: center;   
+    
 }
 
 .arrow-right {
@@ -728,6 +729,8 @@ footer {
     .partner-arrows {
         width: 90%;
         min-width: 320px;
+        height: 280px;
+        margin-top: 25px;
     }
 
     .questions-accordio {

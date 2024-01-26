@@ -3,6 +3,8 @@
 const hamMenu = document.querySelector(".ham-menu");
 const offScreenMenu = document.querySelector('.off-screen-menu');
 const allPartnersContainer = document.querySelector('.all-partners');
+const partnersContainer = document.querySelector('.partners-center');
+const partnerArrows = document.querySelector('.partner-arrows');
 const partnersFirstDivs = allPartnersContainer.querySelectorAll('.partners-first');
 const partnersSecondDivs = allPartnersContainer.querySelectorAll('.partners-second');
 const partnersThirdDivs = allPartnersContainer.querySelectorAll('.partners-third');
@@ -23,6 +25,8 @@ const lists = document.querySelector('.list');
 const header = document.querySelector('header');
 
 
+
+
 //-----Partners wheel-----//
 
 //Combining all partner divs into a single array
@@ -35,6 +39,7 @@ const allDivsArray = [
 // Initializing variables
 let currentGroupIndex = 0;
 let arrowClickedRecently = false;
+let mouseEnter = 0;
 
 /* 
 handleArrowClick function sets arrowClickedRecently to true,  indicating that an arrow click is recent. 
@@ -42,10 +47,10 @@ it Initiates a fade-out effect on all partner divs by changing their opacity to 
 Updates the currentGroupIndex based on the arrow direction ('left' or 'right').
 Calls the showGroup function to trigger a fade-in effect on the corresponding group of partner divs.
 Uses setTimeout to reset arrowClickedRecently to false after a delay of 500 milliseconds, 
-allowing time for the fade-out transition to complete.
+allowing time for the fade-out transition to complete. banners dont change if mouse is over them.
             */
 function handleArrowClick(direction) {
-
+    if (!mouseEnter) {
     arrowClickedRecently = true;
     //if arrow was clicked recently fade out on every element is happening
     allDivsArray.forEach((element) => {
@@ -72,7 +77,19 @@ function handleArrowClick(direction) {
     setTimeout(() => {
         arrowClickedRecently = false;
     }, 3000);
+}}
 
+
+//added event listener on all partners banners and
+allDivsArray.forEach(element => {
+    element.addEventListener('mouseenter', handleMouseEnter);
+    element.addEventListener('mouseleave', handleMouseLeave);
+});
+function handleMouseEnter() {        
+    mouseEnter = 1;        
+}
+function handleMouseLeave() {        
+    mouseEnter = 0;  
 }
 
 //calling function with parameter left if left arrow was clicked
@@ -153,6 +170,14 @@ for (let i = 0; i < questions.length; i++) {
         answers[i].classList.toggle("slide");
     });
 }
+
+
+
+
+
+
+
+
 
 //-------------------------------------//
 
