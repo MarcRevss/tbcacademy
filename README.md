@@ -77,9 +77,6 @@ TBCxUSAID TA is a technical assignment completed as part of the TBC Academy REAC
   The hamMenu element has a click event listener.
   On click, it toggles the "active" class on the hamburger menu (hamMenu) and its off-screen counterpart (offScreenMenu), toggles the click variable, and calls darkMode. Transitions are made in CSS. 
 
-  - **Hamburger Menu (Mobile Version):**
-  * Scrolling down changes effect of headers opacity. When it's back to start position, regains opacity. In mobile mode, if scrolling down, header makes slide up effect and vice versa.
-
   - Scrolling Down:
   If the current scroll position (scrollTop) is greater than the last scroll position (lastScrollTop), it indicates that the user is scrolling down.
   The opacity of the header is set to '0.85'.
